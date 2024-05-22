@@ -81,7 +81,6 @@
   <ItemGroup>
     <Content Include="EVerseLogo30x30.ico" />
     <Content Include="InstallScript.iss" />
-    <Content Include="ParameterScannerIcon.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
