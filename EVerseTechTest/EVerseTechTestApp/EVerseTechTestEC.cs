@@ -15,6 +15,7 @@ namespace EVerseTechTestApp
         {
             try
             {
+                //Displays UI
                 UIApplication uiapp = commandData.Application;
                 eVerseTechTestApp.uiApp = uiapp;
                 eVerseTechTestApp.ShowEVerseTechTestAppUI();

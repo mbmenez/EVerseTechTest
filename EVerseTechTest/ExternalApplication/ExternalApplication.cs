@@ -13,6 +13,7 @@ namespace EVerseTechTestApp
 {
     public class ExternalApplication : IExternalApplication
     {
+        //Adds ribbon and button
         public ExternalApplication() { }
         public static string AutodeskUserId { get; set; } = null;
         public static ExternalApplication eVerseTechTestApp = new ExternalApplication();
@@ -50,6 +51,7 @@ namespace EVerseTechTestApp
             dataPanel.AddItem(EVerseTechTestPBD);
         }
 
+        //Defines UI behavior
         internal EVerseTechTestAppMVVM eVerseTechTestAppMVVM = null;
         internal void ShowEVerseTechTestAppUI()
         {

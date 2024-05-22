@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:EVerseTechTestApp"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         mc:Ignorable="d" 
-        Height="420" 
+        Height="335" 
         Width="340"
         WindowStyle="None">
     
@@ -68,7 +68,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="200"></RowDefinition>
-            <RowDefinition Height="85"></RowDefinition>
             <RowDefinition Height="85"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid

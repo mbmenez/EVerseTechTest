@@ -13,7 +13,7 @@ namespace EVerseTechTestApp
 {
     public partial class EVerseTechTestAppMVVM : Window, IDisposable
     {
-
+        //Interface components
         public static string FloorLengthString {  get; set; }
         public static string FloorWidthString { get; set; }
         public static EVerseTechTestAppMVVM MainView { get; set; }
@@ -21,21 +21,26 @@ namespace EVerseTechTestApp
         public static Document Document { get; internal set; }
         public static UIDocument UIDocument { get; internal set; }
         public static UIApplication Application { get; internal set; }
+
+        //Events
         public static ExternalEvent CreateNewFloorEvent { get; set; } = ExternalEvent.Create(new CreateNewFloorEEH());
         public static ExternalEvent ListAllWallsEvent { get; set; } = ExternalEvent.Create(new ListAllWallsEEH());
 
+        //Main window
         public EVerseTechTestAppMVVM(UIApplication uiapp, UIDocument uidoc, Document doc)
         {
             Application = uiapp;
             UIDocument = uidoc;
             Document = doc;
             LevelViewModels = new ObservableCollection<LevelViewModel>();
+            //Populates Level ComboBox    
             EVerseTechTestUIService.PopulateLevelComboBox(doc);
             MainView = this;
             DataContext = this;
             InitializeComponent();
         }
         
+        //Actions
         private void Close_Button_Click(object sender, RoutedEventArgs e)
         {
             Close();
@@ -52,7 +57,6 @@ namespace EVerseTechTestApp
         {
             CreateNewFloorEvent.Raise();
         }
-
 
         private void FloorLengthTextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
@@ -72,6 +76,8 @@ namespace EVerseTechTestApp
             FloorWidthString = currentText;
         }
     }
+
+    //Levels view model to be displayed in Level ComboBox
     public class LevelViewModel: INotifyPropertyChanged 
     {
         public static Document Document { get; internal set; }
