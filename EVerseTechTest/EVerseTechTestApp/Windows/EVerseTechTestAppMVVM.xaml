@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:EVerseTechTestApp"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         mc:Ignorable="d" 
-        Height="335" 
+        Height="350" 
         Width="340"
         WindowStyle="None">
     
