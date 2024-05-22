@@ -8,8 +8,8 @@
     <ProjectGuid>{54B60FF5-0884-44B9-B25E-C7CD34DEDE3E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ParameterScanner.Installer</RootNamespace>
-    <AssemblyName>ParameterScanner.Installer</AssemblyName>
+    <RootNamespace>EVerseTechTest.Installer</RootNamespace>
+    <AssemblyName>EVerseTechTest.Installer</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,7 +41,7 @@
     <PlatformTarget>x64</PlatformTarget>
     <LangVersion>7.3</LangVersion>
     <ErrorReport>prompt</ErrorReport>
-    <DocumentationFile>..\..\..\ParameterScanner\ParameterScanner.Installer.xml</DocumentationFile>
+    <DocumentationFile>..\..\..\ParameterScanner\EVerseTechTest.Installer.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>..\..\..\ParameterScanner\</OutputPath>
@@ -56,11 +56,11 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>ParameterScannerIcon.ico</ApplicationIcon>
+    <ApplicationIcon>EVerseLogo30x30.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="RevitAPI">
-      <HintPath>..\..\..\ParameterScanner\packages\Revit_API_x64.2020.0.0\lib\NET470\RevitAPI.dll</HintPath>
+      <HintPath>..\packages\Autodesk.Revit.SDK.2024.2024.0.0.2001\ref\net48\RevitAPI.dll</HintPath>
     </Reference>
     <Reference Include="RevitAPIIFC">
       <HintPath>..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2022\RevitAPIIFC.dll</HintPath>
@@ -78,6 +78,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="EVerseLogo30x30.ico" />
     <Content Include="InstallScript.iss" />
     <Content Include="ParameterScannerIcon.ico" />
   </ItemGroup>

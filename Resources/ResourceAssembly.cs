@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace ParameterScannerResources
+namespace EVerseTechTestResources
 {
     /// <summary>
     /// Resource assembly helper methods

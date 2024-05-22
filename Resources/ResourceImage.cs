@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Windows.Media.Imaging;
 
-namespace ParameterScannerResources
+namespace EVerseTechTestResources
 {
     /// <summary>
     /// Gets the embedded resource image from the Resources assembly based on user provided file name with extension.

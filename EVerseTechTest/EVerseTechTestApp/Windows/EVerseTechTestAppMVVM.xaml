@@ -3,12 +3,229 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"  
+        xmlns:local="clr-namespace:EVerseTechTestApp"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         mc:Ignorable="d" 
-        Height="300" 
-        Width="450"
+        Height="420" 
+        Width="340"
         WindowStyle="None">
-    <!--MouseDown="Window_MouseDown"-->
-
+    
+    <Window.Resources>
+        <Style TargetType="DataGridRow">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ChangeColor, NotifyOnTargetUpdated=True, Mode=TwoWay}" Value="True">
+                    <Setter Property="Background" Value="#FFFBDC90" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFC1C1C1"  />
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFC1C1C1"  />
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFC1C1C1"  />
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="RoundedButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="7" BorderBrush="Black" BorderThickness="1" Background="#FF838383" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#FFB8B6B6"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FFB8B6B6"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#FF5B5953"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#FF5B5953"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="85"></RowDefinition>
+            <RowDefinition Height="85"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid
+            Grid.Row="0"
+            Margin="10">
+            <Image HorizontalAlignment="Left" Height="40" Width="108" VerticalAlignment="Center" Source="C:\Users\Mariana Menezes\source\repos\EVerseTechTest\Resources\Images\EverseLogo.png"/>
+            <Grid Width="Auto" HorizontalAlignment="Right" Height="Auto" VerticalAlignment="Top">
+                <Button x:Name="Close_Button"
+                        Click="Close_Button_Click"
+                        ToolTip="Close"
+                        VerticalAlignment="Top"
+                        Foreground="Black"
+                        BorderBrush="{x:Null}"
+                        Background="{x:Null}"
+                        Style="{DynamicResource RoundedButtonStyle}"
+                        Height="25" Cursor="Hand"
+                        HorizontalAlignment="Right"
+                        Width="25">
+                    <Image Source="C:\Users\Mariana Menezes\source\repos\EVerseTechTest\Resources\Images\Close.png" Width="15"/>
+                </Button>
+            </Grid>    
+        </Grid>
+        <GroupBox 
+            Grid.Row="1"
+            Margin="5"
+            Header="Create new floor instance">
+            <Grid>
+                <TextBox
+                    x:Name="FloorLengthText"
+                    FontSize="15"
+                    BorderBrush="Transparent"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Margin="30,20,0,0"
+                    BorderThickness="0"
+                    TextAlignment="Left"
+                    Padding="1"
+                    Text="Floor Length (ft):"
+                    Width="Auto"
+                    AcceptsReturn="False"
+                    IsReadOnly="True">
+                </TextBox>
+                <TextBox
+                    x:Name="FloorLengthTextBox"
+                    FontSize="12"
+                    BorderBrush="Transparent"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Margin="0,23,30,0"
+                    BorderThickness="0"
+                    Background="LightGray"
+                    TextAlignment="Left"
+                    Padding="1"
+                    TextChanged="FloorLengthTextBox_TextChanged"
+                    Width="120"
+                    Text="{Binding FloorLengthString, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                </TextBox>
+                <TextBox x:Name="FloorWidthText"
+                    FontSize="15"
+                    BorderBrush="Transparent"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Margin="30,55,30,0"
+                    AcceptsReturn="False"
+                    BorderThickness="0"
+                    TextAlignment="Left"
+                    Padding="1"
+                    Text="Floor Width (ft):"
+                    Width="Auto"
+                    IsReadOnly="True">
+                </TextBox>
+                <TextBox
+                    x:Name="FloorWidthTextBox"
+                    FontSize="12"
+                    BorderBrush="Transparent"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Margin="30,58,30,0"
+                    BorderThickness="0"
+                    Background="LightGray"
+                    TextAlignment="Left"
+                    Padding="1"
+                    TextChanged="FloorWidthTextBox_TextChanged"
+                    Width="120"
+                    Text="{Binding FloorWidthString, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                </TextBox>
+                <TextBox 
+                    x:Name="FloorLevelText"
+                    FontSize="15"
+                    BorderBrush="Transparent"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Margin="30,90,30,0"
+                    AcceptsReturn="False"
+                    BorderThickness="0"
+                    TextAlignment="Left"
+                    Padding="1"
+                    Text="Floor Level:"
+                    Width="Auto"
+                    IsReadOnly="True">
+                </TextBox>
+                <ComboBox 
+                    x:Name="FloorLevelComboBox"
+                    FontSize="12"
+                    BorderBrush="Transparent"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Margin="30,93,30,0"
+                    BorderThickness="0"
+                    Padding="1"
+                    DisplayMemberPath="LevelName"
+                    Width="120"
+                    ItemsSource="{Binding LevelViewModels, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                </ComboBox>
+                <Button 
+                    x:Name="CreateFloor"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Click="Create_New_Floor_Button_Click"
+                    Cursor="Hand"
+                    FontWeight="Bold"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Style="{DynamicResource RoundedButtonStyle}"
+                    UseLayoutRounding="True"
+                    Height="30"
+                    Width="260"
+                    Margin="0,0,0,10"
+                    Content="Create New Floor">
+                </Button>
+            </Grid>
+        </GroupBox>
+        <GroupBox
+                Grid.Row="2"
+                Margin="5"
+                Header="List all walls in document">
+            <Grid 
+                Grid.Row="2"
+                Margin="10">
+                <Button 
+                    x:Name="ListAllWalls"
+                    Background="Transparent"
+                    BorderBrush="Transparent"
+                    Click="List_All_Walls_Button_Click"
+                    Cursor="Hand"
+                    FontWeight="Bold"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Style="{DynamicResource RoundedButtonStyle}"
+                    UseLayoutRounding="True"
+                    Height="30"
+                    Width="260"
+                    Content="List All Walls">
+                </Button>
+            </Grid>
+        </GroupBox>
+        
+    </Grid>
     
 </Window>

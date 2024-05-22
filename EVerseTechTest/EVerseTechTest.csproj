@@ -35,6 +35,9 @@
     <Reference Include="AdWindows">
       <HintPath>..\packages\Autodesk.Revit.SDK.2024.2024.0.0.2001\ref\net48\AdWindows.dll</HintPath>
     </Reference>
+    <Reference Include="EVerseTechTestResources">
+      <HintPath>..\Resources\bin\x64\Debug\EVerseTechTestResources.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="RevitAddInUtility">
@@ -67,6 +70,7 @@
   <ItemGroup>
     <Compile Include="EVerseTechTestApp\EVerseTechTestEC.cs" />
     <Compile Include="EVerseTechTestApp\EVerseTechTestEEH.cs" />
+    <Compile Include="EVerseTechTestApp\EVerseTechTestUIService.cs" />
     <Compile Include="EVerseTechTestApp\Windows\EVerseTechTestAppMVVM.xaml.cs">
       <DependentUpon>EVerseTechTestAppMVVM.xaml</DependentUpon>
     </Compile>

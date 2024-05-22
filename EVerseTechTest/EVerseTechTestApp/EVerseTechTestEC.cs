@@ -2,6 +2,8 @@
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
 using System;
+using EVerseTechTestApp;
+using static EVerseTechTestApp.ExternalApplication;
 
 namespace EVerseTechTestApp
 {
@@ -14,8 +16,8 @@ namespace EVerseTechTestApp
             try
             {
                 UIApplication uiapp = commandData.Application;
-                //eVerseTechTestApp.uiApp = uiapp;
-                //eVerseTechTestApp.ShowEVerseTechTestAppUI();
+                eVerseTechTestApp.uiApp = uiapp;
+                eVerseTechTestApp.ShowEVerseTechTestAppUI();
                 return Result.Succeeded;
             }
             catch (Exception ex)
