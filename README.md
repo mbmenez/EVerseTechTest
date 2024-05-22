@@ -2,7 +2,7 @@
 
 This is Mariana Menezes' source code for E-Verse's requested technical test. The installer can be found in the release attachments of this repository or inside the 'Output' folder. It's named 'EVerseTechTest 1.0.0.exe'. It should be download and executed with all Revit applications closed.
 
-This solution is designed to work with Revit 2024. It is composed of two simple features: 'Create Floor' and 'List All Walls'. 'Create New Floor' generates a simple rectangular floor from an available floor type in the document according to user inputs for length, width, and level. 'List All Walls' lists the number of walls instantiated in the document and how many instances there are of each wall type.
+This solution is designed to work with Revit 2024. It is composed of two simple features: 'Create New Floor' and 'List All Walls'. 'Create New Floor' generates a simple rectangular floor from an available floor type in the document according to user inputs for length, width, and level. 'List All Walls' lists the number of walls instantiated in the document and how many instances there are of each wall type.
 
 ![Alt text](Image.jpg)
 
